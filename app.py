@@ -77,8 +77,7 @@ st.markdown('The signal and sky background values are a function of the exposure
 st.markdown('* When $S/N$ scales with $S / \sqrt{S}$, we say the data is :violet[signal-limited]. The signal-to-noise ratio increases with more light collection power, meaning increased exposure time and larger aperture telescopes can increase this ratio.')
 st.markdown('* When $S/N$ scales with $S / \sqrt{B}$, we say the data is :violet[background-limited]. If the data is background-limited, it is often in the case of faint targets. Imaging during darker phases of the moon can help decrease noise in this scenario.')
 st.markdown('* When $S/N$ scales with $S / R$, we say the data is :violet[detector-limited]. If the data is read-noise dominated, it is beneficial to take data over longer exposure times or obtain a more read-noise efficient CCD.')
-
-    
+   
 #create sidebar for noise level controls
 st.markdown('## Noise Addition :violet[Visualization]')
 st.markdown('How do these different types of noise impact an image?')
