@@ -10,4 +10,4 @@ It explains the ways in which different factors influence the noise levels in an
 The ```asternoise``` package is written in ```Python```. It requires the installation of the following ```Python``` packages: ```numpy```, ```astropy```, ```streamlit```, and ```matplotlib```.
 
 ### To Use
-To launch the app, the code must be downloaded in an environment which contains the packages required above. Then, in a command terminal, navigate to the ```asternoise``` folder and type the command "```streamlit run app.py```". This will launch the app in a browser window.
+To launch the app, either click on the stable link above, or download the code from this github page. The code must be downloaded in an environment which contains the packages required above. Then, in a command terminal, navigate to the ```asternoise``` folder and type the command "```streamlit run app.py```". This will launch the app in a browser window.
