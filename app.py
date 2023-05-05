@@ -156,9 +156,9 @@ if select_model == 'Random noise':
 if select_model == 'NGC 3132':
     #import the data, it will be of size 2500,2500
     
-    filter1 = r'./data/jw02733-o001_t001_nircam_clear-f356w_i2d.fits'
-    filter2 = r'./data/jw02733-o001_t001_nircam_f405n-f444w_i2d.fits'
-    filter3 = r'./data/jw02733-o001_t001_nircam_f444w-f470n_i2d.fits'
+    filter1 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_clear-f356w_i2d.fits'
+    filter2 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f405n-f444w_i2d.fits'
+    filter3 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f444w-f470n_i2d.fits'
     
     filters = [filter1, filter2, filter3]
     
@@ -174,9 +174,9 @@ if select_model == 'NGC 3132':
 if select_model == 'NGC 1433':
     #import the data, it will be of size 2500,2500
     
-    filter1 = r'./data/jw02107-o005_t005_miri_f770w_i2d.fits'
-    filter2 = r'./data/jw02107-o005_t005_miri_f1000w_i2d.fits'
-    filter3 = r'./data/jw02107-o005_t005_miri_f1130w_i2d.fits'
+    filter1 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02107-o005_t005_miri_f770w_i2d.fits'
+    filter2 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02107-o005_t005_miri_f1000w_i2d.fits'
+    filter3 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02107-o005_t005_miri_f1130w_i2d.fits'
     
     filters = [filter1, filter2, filter3]
     
