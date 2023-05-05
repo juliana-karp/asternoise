@@ -1,6 +1,6 @@
 # asternoise
 
-:violet[Access the website here! https://asternoise.streamlit.app/]
+Please access the website here! https://asternoise.streamlit.app/
 
 ### ```asternoise``` is a teaching tool designed for Yale University's ASTR 255: Introduction to Astronomical Research course.
 
