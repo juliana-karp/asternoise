@@ -19,9 +19,30 @@ st.markdown('# Welcome to :violet[asternoise], a CCD noise visualization and tea
 #explain what a CCD is
 st.markdown('## What is a :violet[charged-couple device] (CCD)?')
 st.image('ccd_image.jpg', caption='Image source: https://www.borntoengineer.com')
-st.markdown('CCDs are the most common imaging instrument today. They are used in phone cameras, digital cameras, and modern telescopes.')
-st.markdown('A CCD is an electronic device which uses semiconductors to detect incident photons above a certain energy threshhold. The semiconductors begin in a de-excited ground state, meaning that the electrons in their outer shell are bound to the atom in the valence band. When an incident photon hits the semiconductor, its energy is absorbed, which causes an electron in the valence band to jump energy levels up to the conduction band. Over time, as many photons hit the semiconductor, these negative charges accumulate and create a global negative electric charge in the material whose magnitude is proportional to the number of incident absorbed photons.')
-st.markdown('In order to record an image, the CCD is divided into many tiny square wells, each with their own semiconductor. These wells become the pixels on a digital image. Within each individual well, the charge buildup is summed, so in order to obtain higher resolution data, the same total CCD surface area must be divided into a greater number of wells. Finally, using an analog-to-digital converter (ADC), the charge buildups in each well are read out, recorded digitally, and stored in data formats we are familiar with.')
+st.markdown('CCDs are the most common imaging instrument today. They are used \
+            in phone cameras, digital cameras, and modern telescopes.')
+st.markdown('A CCD is an electronic device which uses semiconductors to \
+            detect incident photons above a certain energy threshhold. \
+            The semiconductors begin in a de-excited ground state,\
+            meaning that the electrons in their outer shell are \
+            bound to the atom in the valence band. When an \
+            incident photon hits the semiconductor, \
+            its energy is absorbed, which causes an electron \
+            in the valence band to jump energy levels up to the\
+            conduction band. Over time, as many photons hit the\
+            semiconductor, these negative charges accumulate and \
+            create a global negative electric charge in the material\
+            whose magnitude is proportional to the number of incident\
+            absorbed photons.')
+st.markdown('In order to record an image, the CCD is divided into many\
+            tiny square wells, each with their own semiconductor. \
+            These wells become the pixels on a digital image. Within \
+            each individual well, the charge buildup is summed, so in \
+            order to obtain higher resolution data, the same total CCD \
+            surface area must be divided into a greater number of wells. \
+            Finally, using an analog-to-digital converter (ADC), the \
+            charge buildups in each well are read out, recorded \
+            digitally, and stored in data formats we are familiar with.')
 
 #explain different types of noise
 st.markdown('## What :violet[noise sources] exist?')
@@ -65,24 +86,50 @@ ax.set_ylabel('Likelihood')
 st.pyplot(fig)
 
 st.markdown('### Read Noise')
-st.markdown('At the end of each exposure, the excess charge which has been accumulated in each pixel well must be read out before it can be converted to a digital format by the analog-to-digital converter (ADC). This process occurs pixel by pixel, and therefore takes some time. The ADC is an electrical component which produces its own heat, meaning that it can add noise to the data that it is recording. This noise is called read noise, and is present in every image recorded by CCDs.')
+st.markdown('At the end of each exposure, the excess charge which \
+            has been accumulated in each pixel well must be read \
+            out before it can be converted to a digital format by \
+            the analog-to-digital converter (ADC). This process occurs \
+            pixel by pixel, and therefore takes some time. The ADC is \
+            an electrical component which produces its own heat, \
+            meaning that it can add noise to the data that it is \
+            recording. This noise is called read noise, and is present \
+            in every image recorded by CCDs.')
 
 #add formula for noise addition
 st.markdown('## How do different types of noise :violet[add] with each other?')
-st.markdown('Let S be the signal, while N is the total noise. If B is the noise from the sky background and R is the read noise, then the total signal to noise can be written as:')
+st.markdown('Let S be the signal, while N is the total noise. If \
+            B is the noise from the sky background and R is the \
+            read noise, then the total signal to noise can be \
+            written as:')
 st.markdown('### $S \div N = S \div \sqrt{S + B + R^2}$')
-st.markdown('The signal and sky background values are a function of the exposure time, but the read noise is an instrinsic value of the CCD and does not depend on exposure time.')
+st.markdown('The signal and sky background values are a function \
+            of the exposure time, but the read noise is an instrinsic \
+            value of the CCD and does not depend on exposure time.')
 
 #define signal-dominated, noise-dominated regions
-st.markdown('* When $S/N$ scales with $S / \sqrt{S}$, we say the data is :violet[signal-limited]. The signal-to-noise ratio increases with more light collection power, meaning increased exposure time and larger aperture telescopes can increase this ratio.')
-st.markdown('* When $S/N$ scales with $S / \sqrt{B}$, we say the data is :violet[background-limited]. If the data is background-limited, it is often in the case of faint targets. Imaging during darker phases of the moon can help decrease noise in this scenario.')
-st.markdown('* When $S/N$ scales with $S / R$, we say the data is :violet[detector-limited]. If the data is read-noise dominated, it is beneficial to take data over longer exposure times or obtain a more read-noise efficient CCD.')
+st.markdown('* When $S/N$ scales with $S / \sqrt{S}$, we say the \
+            data is :violet[signal-limited]. The signal-to-noise \
+            ratio increases with more light collection power, \
+            meaning increased exposure time and larger aperture \
+            telescopes can increase this ratio.')
+st.markdown('* When $S/N$ scales with $S / \sqrt{B}$, we say the \
+            data is :violet[background-limited]. If the data is \
+            background-limited, it is often in the case of faint \
+            targets. Imaging during darker phases of the moon can help \
+            decrease noise in this scenario.')
+st.markdown('* When $S/N$ scales with $S / R$, we say the data is \
+            :violet[detector-limited]. If the data is read-noise \
+            dominated, it is beneficial to take data over longer \
+            exposure times or obtain a more read-noise efficient CCD.')
    
 #create sidebar for noise level controls
 st.markdown('## Noise Addition :violet[Visualization]')
 st.markdown('How do these different types of noise impact an image?')
 st.markdown("### Noise Parameter Control Panel")
-st.markdown('Please use the menu below to select which base model you want to use and to adjust the levels of different noise sources. The visualization will appear below.')
+st.markdown('Please use the menu below to select which base model you \
+            want to use and to adjust the levels of different noise \
+            sources. The visualization will appear below.')
 
 #select which model you want to use
 select_model = st.selectbox('Which base model would you like to use?',
@@ -160,5 +207,10 @@ ax.set_title(title, fontsize=15)
 ax.tick_params(axis='both', labelsize=8)
 st.pyplot(fig)
 
-st.markdown('The data used as models above was recorded by NASA\'s James Webb Space Telescope\'s Mid-Infrared Instrument (MIRI) and Near Infrared Camera (NIRCam). It was retrieved from the Barbara A. Mikulski Archive for Space Telescopes (MAST) at the following link: https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html.')
+st.markdown('The data used as models above was recorded by \
+            NASA\'s James Webb Space Telescope\'s Mid-Infrared \
+            Instrument (MIRI) and Near Infrared Camera (NIRCam). \
+            It was retrieved from the Barbara A. Mikulski Archive \
+            for Space Telescopes (MAST) at the following link: \
+            https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html.')
 st.markdown('The app was coded by Juliana Karp.')
