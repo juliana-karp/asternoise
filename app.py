@@ -47,7 +47,13 @@ st.markdown('In order to record an image, the CCD is divided into many\
 #explain different types of noise
 st.markdown('## What :violet[noise sources] exist?')
 st.markdown('### Background Sky Noise')
-st.markdown('The background behind objects of interest is never zero. It is also more complicated than just one singular value which can be subtracted from the dataset. It can be visualized as a gaussian profile of random values distributed about a mean, which the user can choose below. In each pixel, a random value from the gaussian will be chosen as the background sky value.')
+st.markdown('The background behind objects of interest is never zero. \
+            It is also more complicated than just one singular value which \
+            can be subtracted from the dataset. It can be visualized as a \
+            gaussian profile of random values distributed about a mean, \
+            which the user can choose below. In each pixel, a random \
+            value from the gaussian will be chosen as the background \
+            sky value.')
 back_sky = st.slider('Mean Background Sky Value', 0.0, 20.0, 0.0)
 
 #write a function to create a gaussian
