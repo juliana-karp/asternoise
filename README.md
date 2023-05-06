@@ -1,6 +1,5 @@
 # asternoise
 
-## Use <a name = "getting_started"></a>
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://asternoise.streamlit.app)
 
 ### ```asternoise``` is a teaching tool designed for Yale University's ASTR 255: Introduction to Astronomical Research course.
