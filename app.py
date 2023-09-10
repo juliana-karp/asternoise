@@ -23,37 +23,40 @@ st.markdown('CCDs are the most common imaging instrument today. They are used \
             in phone cameras, digital cameras, and modern telescopes.')
 st.markdown('A CCD is an electronic device which uses semiconductors to \
             detect incident photons above a certain energy threshhold. \
-            The semiconductors begin in a de-excited ground state,\
+            The semiconductors begin in a de-excited ground state, \
             meaning that the electrons in their outer shell are \
-            bound to the atom in the valence band. When an \
-            incident photon hits the semiconductor, \
-            its energy is absorbed, which causes an electron \
-            in the valence band to jump energy levels up to the\
-            conduction band. Over time, as many photons hit the\
+            bound to the atom in the valence band. When an incident \
+            photon hits the semiconductor, its energy is absorbed, which \
+            causes an electron in the valence band to jump energy levels \
+            up to the conduction band. Over time, as many photons hit the \
             semiconductor, these negative charges accumulate and \
-            create a global negative electric charge in the material\
-            whose magnitude is proportional to the number of incident\
+            create a global negative electric charge in the material \
+            whose magnitude is proportional to the number of incident \
             absorbed photons.')
-st.markdown('In order to record an image, the CCD is divided into many\
-            tiny square wells, each with their own semiconductor. \
-            These wells become the pixels on a digital image. Within \
-            each individual well, the charge buildup is summed, so in \
-            order to obtain higher resolution data, the same total CCD \
+st.markdown('Using this technique, we are only able to quantify the the total number \
+            of incident photons within a single semiconductor, not their \
+            individual positions. Therefore, in order to take an image, the CCD is \
+            divided into many tiny square wells, each with their own semiconductor. \
+            Within each individual well, the charge buildup is summed and a singular \
+            value is recorded. These wells correspond to the pixels of a \
+            digital image. To obtain higher resolution data, the same total CCD \
             surface area must be divided into a greater number of wells. \
-            Finally, using an analog-to-digital converter (ADC), the \
-            charge buildups in each well are read out, recorded \
-            digitally, and stored in data formats we are familiar with.')
+            Before they become a digital image, however, the charge buildups \
+            in each well must be read out by an analog-to-digital converter (ADC), recorded \
+            digitally, and finally stored in data formats we are familiar with.')
 
 #explain different types of noise
 st.markdown('## What :violet[noise sources] exist?')
 st.markdown('### Background Sky Noise')
-st.markdown('The background behind objects of interest is never zero. \
-            It is also more complicated than just one singular value which \
-            can be subtracted from the dataset. It can be visualized as a \
-            gaussian profile of random values distributed about a mean, \
-            which the user can choose below. In each pixel, a random \
-            value from the gaussian will be chosen as the background \
-            sky value.')
+st.markdown('When observing an astronomical object, not all of the light we measure \
+            is actually coming from the object itself. The sky has a background brightness \
+            that must be taken into account. Even in areas of the sky that appear completely \
+            dark, the background sky value is never zero. It is also not simply a constant value -- \
+            which, ideally, could simply be subtracted from the dataset. Rather, the \
+            background sky value can be visualized as a gaussian profile of random values \
+            distributed about a mean, which the user can choose in the demonstration below. \
+            In each pixel, the background sky value corresponds to a random value probabilistically \
+            sampled from the gaussian distribution.')
 back_sky = st.slider('Mean Background Sky Value', 0.0, 20.0, 0.0)
 
 #write a function to create a gaussian
@@ -93,14 +96,14 @@ st.pyplot(fig)
 
 st.markdown('### Read Noise')
 st.markdown('At the end of each exposure, the excess charge which \
-            has been accumulated in each pixel well must be read \
+            has accumulated in each pixel well must be read \
             out before it can be converted to a digital format by \
             the analog-to-digital converter (ADC). This process occurs \
-            pixel by pixel, and therefore takes some time. The ADC is \
-            an electrical component which produces its own heat, \
-            meaning that it can add noise to the data that it is \
-            recording. This noise is called read noise, and is present \
-            in every image recorded by CCDs.')
+            pixel by pixel, and therefore takes time. Since the ADC is \
+            an electrical component, it produces its own heat, meaning photons. \
+            These photons are then recorded by the CCD as part of its measurement, \
+            therefore adding noise to the data. This noise is called read noise, \
+            and is present in every image taken by CCDs.')
 
 #add formula for noise addition
 st.markdown('## How do different types of noise :violet[add] with each other?')
@@ -116,18 +119,16 @@ st.markdown('The signal and sky background values are a function \
 #define signal-dominated, noise-dominated regions
 st.markdown('* When $S/N$ scales with $S / \sqrt{S}$, we say the \
             data is :violet[signal-limited]. The signal-to-noise \
-            ratio increases with more light collection power, \
-            meaning increased exposure time and larger aperture \
-            telescopes can increase this ratio.')
+            ratio increases with more light collection power. \
+            In this scenario, increased exposure time and larger aperture \
+            telescopes can help increase the signal-to-noise ratio.')
 st.markdown('* When $S/N$ scales with $S / \sqrt{B}$, we say the \
-            data is :violet[background-limited]. If the data is \
-            background-limited, it is often in the case of faint \
-            targets. Imaging during darker phases of the moon can help \
-            decrease noise in this scenario.')
+            data is :violet[background-limited]. This is often the case when \
+            observing faint targets. In this scenario, the signal-to-noise ratio \
+            can be improved by taking data during darker phases of the moon.')
 st.markdown('* When $S/N$ scales with $S / R$, we say the data is \
-            :violet[detector-limited]. If the data is read-noise \
-            dominated, it is beneficial to take data over longer \
-            exposure times or obtain a more read-noise efficient CCD.')
+            :violet[detector-limited]. In this scenario, it is beneficial to \
+            increase the exposure time or obtain a more read-noise efficient CCD.')
    
 #create sidebar for noise level controls
 st.markdown('## Noise Addition :violet[Visualization]')
@@ -219,4 +220,7 @@ st.markdown('The data used as models above was recorded by \
             It was retrieved from the Barbara A. Mikulski Archive \
             for Space Telescopes (MAST) at the following link: \
             https://mast.stsci.edu/portal/Mashup/Clients/Mast/Portal.html.')
-st.markdown('The app was coded by Juliana Karp.')
+st.markdown('This app was coded by Juliana Karp, an undergraduate astrophysics major at Yale University. \
+            They thank Professor Marla Geha and teaching assistant Will Cerny for all their help \
+            in the creation of this app. Please reach out to them at juliana.karp@yale.edu with \
+            any questions or suggestions to improve the app.')
