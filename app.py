@@ -140,7 +140,7 @@ st.markdown('Please use the menu below to select which base model you \
 
 #select which model you want to use
 select_model = st.selectbox('Which base model would you like to use?',
-                                    ['Random noise', #'NGC 3132',
+                                    ['Random noise', 'NGC 3132',
                                      'NGC 1433'])
 
 #display whichever base model the user has selected
