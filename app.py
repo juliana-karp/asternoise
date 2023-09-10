@@ -140,7 +140,7 @@ st.markdown('Please use the menu below to select which base model you \
 
 #select which model you want to use
 select_model = st.selectbox('Which base model would you like to use?',
-                                    ['Random noise', 'NGC 3132',
+                                    ['Random noise', #'NGC 3132',
                                      'NGC 1433'])
 
 #display whichever base model the user has selected
@@ -154,23 +154,23 @@ if select_model == 'Random noise':
     title = 'Random Noise Base Model'
     cmap = 'hot'
     
-#if select_model == 'NGC 3132':
-#    #import the data, it will be of size 2500,2500
-#    
-#    filter1 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_clear-f356w_i2d.fits'
-#    filter2 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f405n-f444w_i2d.fits'
-#    filter3 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f444w-f470n_i2d.fits'
-#    
-#    filters = [filter1, filter2, filter3]
-#    
-#    #define parameters for the visualization
-#    a_min = np.array([0,0,0])
-#    a_max = np.array([50,50,20])
-#    func = 'sqrt'
-#    
-#    #plot particularities
-#    title = 'NGC 3132 JWST NIRCam'
-#    cmap = 'afmhot'
+if select_model == 'NGC 3132':
+    #import the data, it will be of size 2500,2500
+    
+    filter1 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_clear-f356w_i2d.fits'
+    filter2 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f405n-f444w_i2d.fits'
+    filter3 = 'https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:JWST/product/jw02733-o001_t001_nircam_f444w-f470n_i2d.fits'
+    
+    filters = [filter1, filter2, filter3]
+    
+    #define parameters for the visualization
+    a_min = np.array([0,0,0])
+    a_max = np.array([50,50,20])
+    func = 'sqrt'
+    
+    #plot particularities
+    title = 'NGC 3132 JWST NIRCam'
+    cmap = 'afmhot'
     
 if select_model == 'NGC 1433':
     #import the data, it will be of size 2500,2500
