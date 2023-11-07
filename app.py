@@ -167,6 +167,7 @@ if select_model == 'NGC 3132':
     a_min = np.array([0,0,0])
     a_max = np.array([50,50,20])
     func = 'sqrt'
+    zoom = False
     
     #plot particularities
     title = 'NGC 3132 JWST NIRCam'
@@ -185,6 +186,7 @@ if select_model == 'NGC 1433':
     a_min = np.array([10,10,0])
     a_max = np.array([500,1000,100])
     func = 'sqrt'
+    zoom = True
     
     #plot particularities
     title = 'NGC 1433 JWST MIRI'
@@ -198,7 +200,7 @@ exposure_time = st.slider('Exposure Time (seconds)', 1.0, 200.0, 100.0)
 #compile the image
 if select_model != 'Random noise':
     from visualize_data import visualize
-    img = visualize(filters, a_min=a_min, a_max=a_max, func=func)
+    img = visualize(filters, a_min=a_min, a_max=a_max, func=func, zoom=zoom)
 
 #add all the slider noise values using the add_noise function    
 from add_noise import sliders

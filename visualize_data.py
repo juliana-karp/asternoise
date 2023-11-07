@@ -58,7 +58,7 @@ def rescale_img(array, func='sqrt', a_min=None, a_max=None):
 import numpy as np
 
 def visualize(filters, func='sqrt', a_min=np.zeros(3),
-                      a_max=np.ones(3)):
+                      a_max=np.ones(3), zoom=False):
     
     '''
     Function to compile 2D array of data to be used as base model
@@ -76,6 +76,10 @@ def visualize(filters, func='sqrt', a_min=np.zeros(3),
         minimum value to scale to in each filter. default = [0,0,0].
     a_max: array of 3 floats
         maximum value to scale to in each filter. default = [0,0,0].
+    zoom: bool
+        determines whether to zoom on a specific portion of the image.
+        if False: no.
+        if True: zoom on galaxy in NGC 1433 data.
         
     Returns
     -------
@@ -110,7 +114,7 @@ def visualize(filters, func='sqrt', a_min=np.zeros(3),
     img_mean = np.mean(img, axis=2) 
     
     #zoom in on galaxy in ngc 1433 data
-    if img_mean.shape == (2094, 1784):
+    if zoom == True:
         img_mean = img_mean[900:1200,900:1225]
     
     return img_mean
