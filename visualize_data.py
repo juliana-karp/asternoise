@@ -91,9 +91,14 @@ def visualize(filters, func='sqrt', a_min=np.zeros(3),
     g_img = fits.getdata(filters[1])
     r_img = fits.getdata(filters[2])
     
-    #adjust size of ngc 3132 data so that each filter has the same size
-    if b_img.shape != r_img.shape:
-        r_img = r_img[:,:-1]
+    #adjust size of data so that each filter has the same shape
+    shapes = np.array([b_img.shape, g_img.shape, r_img.shape])
+    shape_to = np.min(shapes, axis=0)
+    s_x = shape_to[0]
+    s_y = shape_to[1]
+    b_img = b_img[:s_x,:s_y]
+    g_img = g_img[:s_x,:s_y]
+    r_img = r_img[:s_x,:s_y]
     
     #overlay them by color
     img = np.zeros((g_img.shape[0], g_img.shape[1], 3), dtype=float)
