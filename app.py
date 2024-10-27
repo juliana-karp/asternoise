@@ -200,7 +200,13 @@ exposure_time = st.slider('Exposure Time (seconds)', 1.0, 200.0, 100.0)
 #compile the image
 if select_model != 'Random noise':
     from visualize_data import visualize
-    img = visualize(filters, a_min=a_min, a_max=a_max, func=func, zoom=zoom)
+
+    @st.cache_data
+    def load_img(filters, a_min=a_min, a_max=a_max, func=func, zoom=zoom):
+        img = visualize(filters, a_min=a_min, a_max=a_max, func=func, zoom=zoom)
+        return img
+
+    img = load_img(filters, a_min=a_min, a_max=a_max, func=func, zoom=zoom)
 
 #add all the slider noise values using the add_noise function    
 from add_noise import sliders
